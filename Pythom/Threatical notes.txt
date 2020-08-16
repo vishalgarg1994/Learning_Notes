@@ -1,0 +1,122 @@
+Strings and lists are sequence types in Python. A string is a sequence of characters, while a list
+is a sequence of any elements.
+
+Accessing a list out of bounds is a common programming error that results in a runtime
+IndexError.
+
+Programmers often mistakenly reference the first element in a list with index 1, but it
+should be 0. This is called the off-by-one error.
+
+list2 = list1
+However, this statement does not copy the contents of the list referenced by list1 to
+list2; instead, it merely copies the reference value from list1 to list2. After this
+statement, list1 and list2 refer to the same list, as shown in Figure 10.7. The list
+previously referenced by list2 is no longer referenced; it becomes garbage. The memory
+space occupied by list2 will be automatically collected and reused by the Python
+interpreter.
+
+Recall that you can define a private method in Python by adding two underscores in
+front of a method name (see Chapter 7). A private method cannot be overridden. If a
+method defined in a subclass is private in its superclass, the two methods are completely
+unrelated, even though they have the same name.
+
+
+The Circle class is derived from GeometricObject and the Rectangle class is derived
+from GeometricObject. The GeometricObject class is actually derived from object. It
+is important to be familiar with the methods provided by the object class so that you can use
+them in your classes. All methods defined in the object class are special methods with two
+leading underscores and two trailing underscores. We discuss four methods—__new__(),
+__init__(), __str__(), and __eq__(other)—in this section
+
+The __new__() method is automatically invoked when an object is constructed. This
+method then invokes the __init__() method to initialize the object. Normally you
+should only override the __init__() method to initialize the data fields defined in the
+new class.
+The __str__() method returns a string description for the object. By default, it returns a
+string consisting of a class name of which the object is an instance and the object’s memory
+address in hexadecimal format.
+
+
+
+The __eq__(other) method returns True if two objects are the same. So,
+x.__eq__(x) is True, but x.__eq__(y) returns False, because x and y are two different
+objects even though they may have the same contents. Recall that x.__eq__(y) is same as
+x == y (see Section 8.5).
+You can override this method to return True if two objects have the same contents. The
+__eq__ method is overridden in many Python built-in classes such as int, float, bool,
+string, and list to return True if two objects have the same contents.
+
+subclass is a specialization of its superclass; every instance of a
+subclass is also an instance of its superclass, but not vice versa. For example, every circle is a
+geometric object, but not every geometric object is a circle. Therefore, you can always pass an
+instance of a subclass to a parameter of its superclass type.
+
+Polymorphism means that an object of a subclass can be passed to a parameter of a
+superclass type. A method may be implemented in several classes along the
+inheritance chain. Python decides which method is invoked at runtime. This is known
+as dynamic binding.
+
+Dynamic binding works as follows: Suppose an object o is an instance of classes C1, C2, ...,
+Cn-1, and Cn, where C1 is a subclass of C2, C2 is a subclass of C3, ..., and Cn-1 is a subclass of
+Cn, as shown in Figure 12.2. That is, Cn is the most general class, and C1 is the most specific
+class. In Python, Cn is the object class. If o invokes a method p, Python searches the implementation
+for the method p in C1, C2, ..., Cn-1, and Cn, in this order, until it is found. Once an
+implementation is found, the search stops and the first-found implementation is invoked.
+
+Aggregation models has-a relationships.
+
+The owner object is called an
+aggregating object, and its class is called an aggregating class. The subject object is called an
+aggregated object, and its class is called an aggregated class
+
+
+Tuples are like lists, but their elements are fixed; that is, once a tuple is created, you
+cannot add new elements, delete elements, replace elements, or reorder the elements in
+the tuple
+
+Tuples are sequences. The common operations for sequences in Table 10.1 can be used for
+tuples. You can use the functions len, min, max, and sum on a tuple
+
+A tuple contains a fixed list of elements. An individual element in a tuple may be mutable.
+For example, the following code creates a tuple of circles (line 2), and changes the
+first circle’s radius to 30 (line 3).
+
+1 >>> from CircleFromGeometricObject import Circle
+2 >>> circles = (Circle(2), Circle(4), Circle(7))
+3 >>> circles[0].setRadius(30)
+4 >>> circles[0].getRadius()
+5 >>> 30
+6 >>>
+
+In this example, each element in the tuple is a circle object. Even though you cannot
+add, delete, or replace circle objects in the tuple, you can change a circle’s radius, since
+a circle object is mutable. If a tuple contains immutable objects, the tuple is said to be
+immutable. For example, a tuple of numbers or a tuple of strings is immutable.
+
+Sets are like lists in that you use them for storing a collection of elements. Unlike lists,
+however, the elements in a set are nonduplicates and are not placed in any particular
+order.
+
+A set can contain the elements of the same type or mixed types. For example, s {1, 2, 3,
+"one", "two", "three"} is a set that contains numbers and strings. Each element in a set
+must be hashable. Each object in Python has a hash value and an object is hashable if its hash
+value never changes during its lifetime. All types of objects introduced so far except lists are
+hashable.
+
+Sets are more efficient than lists for the in and not in operator and for the remove
+method
+The elements in a list can be accessed using the index operator. However, sets do not support
+the index operator, because the elements in a set are unordered. To traverse all elements in a
+set, use a for loop.
+
+A dictionary is a container object that stores a collection of key/value pairs. It enables
+fast retrieval, deletion, and updating of the value by using the key.
+
+In a dictionary, the key must be a hashable object. A dictionary cannot contain
+duplicate keys. Each key maps to one value.
+
+Python uses curly braces for sets and dictionaries. The syntax {} denotes an empty dictionary.
+To create an empty set, use set().
+students = {} # Create an empty dictionary
+
+If items are not ordered then only 2 assignments operators could be used ==, !=

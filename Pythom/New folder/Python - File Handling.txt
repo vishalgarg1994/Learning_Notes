@@ -1,0 +1,59 @@
+File Handling
+=====================
+
+1.Open a file
+
+open(filename,mode)
+
+mode is of 2 chars 
+=======================
+First char 
+==============
+"r" - Read - Default value. Opens a file for reading, error if the file does not exist  (default)
+"a" - Append - Opens a file for appending, creates the file if it does not exist
+"w" - Write - Opens a file for writing, creates the file if it does not exist
+"x" - Create - Creates the specified file, returns an error if the file exists
+
+Second char
+===============
+"t" - Text - Default value. Text mode
+"b" - Binary - Binary mode (e.g. images)
+
+
+Read a file
+=============== 
+f = open("demofile.txt", "r")
+print(f.read()) # By default read allcontent
+print(f.read(5)) # Read First 5 chars
+print(f.readline()) # Read line by line
+f = open("demofile.txt", "r"): # Read line by line
+for x in f:
+  print(x)
+f.close()
+
+You should always close your files, in some cases, due to buffering, changes made to a file may not show until you close the file.
+
+
+Write a file
+===================
+f = open("demofile2.txt", "a")
+f.write("Now the file has more content!")
+
+
+Delete a file
+================
+import os
+os.remove("demofile.txt")
+
+check if file exists
+=====================
+import os
+if os.path.exists("demofile.txt"):
+  os.remove("demofile.txt")
+else:
+  print("The file does not exist")
+
+Delete empty folder
+======================
+import os
+os.rmdir("myfolder")

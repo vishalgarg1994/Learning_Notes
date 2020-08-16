@@ -1,0 +1,183 @@
+# Python str class
+-----------------------------------------------------------------------------------------------------------
+s1 = str()           # is same as s1 = ""
+s2 = str("Welcome")  # is same as s2 = "Welcome"
+s3 = str("Welcome")
+print(id(s2), id(s3)) # str is an immutable class
+s3 = str("abc")
+print(id(s3))         # str is immutable
+
+
+140598175092840 140598175092840                                                                                                       
+140598175010576
+-----------------------------------------------------------------------------------------------------------
+
+# Python str class in built properties
+-------------------------------------------------------------------------------------------------------
+s3 = str("Welcome")
+print("1.", len(s3))  # length
+print("2.", max(s3))  # max Ascii value 
+print("3.", min(s3))  # min Ascii value
+print("4.", s3[0])    # treat as sequence of chars 0 to n-1
+print("5.", s3[-1])   # treated as s3[len(s3) -1 ] = s3[6]
+# s3[0] = 'B' error since string is immutable
+print("6.",s3[1:4])   # works like substr s[start : end ]
+print("7.",s3[:6])   # same as s3[0:6]
+print("8.",s3[1:])   # same as s3[1:7]
+print("9.",s3[1:-1]) #-1 treated as same way as above so it will be treated as -1+7 = 6
+s1 = s3 + s3 + "abc" * 3   # + is concatenation and * is repetition.. * is having more precedence
+print(s1)
+print("come" in s3)          # contains 
+print("Wel" not in s3)       # not contains
+# All operators like (==,!=,>,>=,<,<=) can be compared based on Ascii values starting from first char
+for ch in s3:
+    print(ch, end = " ")  # String could be iterated in this way
+print()
+for ch in range(0,len(s3),2):
+    print(s3[ch],end = " ")
+	
+1. 7                                                                                                                                    
+2. o                                                                                                                                    
+3. W                                                                                                                                    
+4. W                                                                                                                                    
+5. e                                                                                                                                    
+6. elc                                                                                                                                  
+7. Welcom                                                                                                                               
+8. elcome                                                                                                                               
+9. elcom                                                                                                                                
+WelcomeWelcomeabcabcabc                                                                                                                 
+True                                                                                                                                    
+False                                                                                                                                   
+W e l c o m e                                                                                                                           
+W l o e   
+-----------------------------------------------------------------------------------------------------------
+
+# Python str class methods
+-------------------------------------------------------------------------------------------------------
+s3 = str("welcome1")
+print(s3.isalnum())  # Alphanummeric
+print(s3.isalpha())  # Alpha
+print(s3.isdigit())  # Digits
+print(s3.islower())  # lower
+print(s3.isupper())  # upper
+print(s3.isspace())  # true if only whitespace chars in string
+print(s3.endswith("come1"))
+print(s3.startswith("wel"))
+s3 = s3 * 3
+print(s3.find("come"))   # first occurence index
+print(s3.rfind("come"))  # last occurence index
+s3 = "ooaocoobo"
+print(s3.count("o"))     # count number of chars
+
+s3 = "Welcome boss"
+print(s3.lower())
+print(s3.upper())
+print(s3.capitalize())      # only first letter cap
+print(s3.title())           # Init CAP
+print(s3.swapcase())  
+print(s3.replace("o","a"))  # replace all
+
+True                                                                                                                                    
+False                                                                                                                                   
+False                                                                                                                                   
+True                                                                                                                                    
+False                                                                                                                                   
+False                                                                                                                                   
+True                                                                                                                                    
+True                                                                                                                                    
+3                                                                                                                                       
+19                                                                                                                                      
+6                                                                                                                                       
+welcome boss                                                                                                                            
+WELCOME BOSS                                                                                                                            
+Welcome boss                                                                                                                            
+Welcome Boss                                                                                                                            
+wELCOME BOSS                                                                                                                            
+Welcame bass
+-------------------------------------------------------------------------------------------------------
+
+# Python str strip + format
+-------------------------------------------------------------------------------------------------------
+s3 = "   ccc   "
+print(s3.lstrip())  # left strip
+print(s3.rstrip())  # right strip
+print(s3.strip())   # full strip
+
+# formatting
+s3 = "welcome"
+print(s3.center(10))   # string in middle but spaces added at right first
+print(s3.ljust(11))   # string at left spaces at right
+print(s3.rjust(11))   # spaces at left string at right
+print(s3.center(4))   # if length is less then automatically increased
+print(s3.ljust(4))    # if length is less then automatically increased
+print(s3.rjust(4))    # if length is less then automatically increased
+
+ccc                                                                                                                                     
+   ccc                                                                                                                                  
+ccc                                                                                                                                     
+ welcome                                                                                                                                
+welcome                                                                                                                                 
+    welcome                                                                                                                             
+welcome                                                                                                                                 
+welcome                                                                                                                                 
+welcome 
+-------------------------------------------------------------------------------------------------------
+
+# Python .. raitonal class
+-------------------------------------------------------------------------------------------------------
+1 import Rational
+2
+3 # Create and initialize two rational numbers r1 and r2.
+4 r1 =
+5 r2 = Rational.Rational(2, 3)
+6
+7 # Display results
+8 print(r1, "+", r2, "=", r1 + r2)
+9 print(r1, "-", r2, "=", r1 - r2)
+10 print(r1, "*", r2, "=", )
+11 print(r1, "/", r2, "=", )
+12
+13 print(r1, ">", r2, "is", )
+14 print(r1, ">=", r2, "is", )
+15 print(r1, "<", r2, "is", )
+16 print(r1, "<=", r2, "is", )
+17 print(r1, "==", r2, "is", )
+18 print(r1, "!=", r2, ”is", )
+19
+20 print("int(r2) is", )
+21 print("float(r2) is", )
+22
+23 print("r2[0] is", )
+24 print("r2[1] is", r2[1])
+
+2 + 2/3 = 8/3
+2 - 2/3 = 4/3
+2 * 2/3 = 4/3
+2 / 2/3 = 3
+2 > 2/3 is True
+2 >= 2/3 is True
+2 < 2/3 is False
+2 <= 2/3 is False
+2 == 2/3 is False
+2 != 2/3 is True
+int(r2) is 0
+float(r2) is 0.6666666666666666
+r2[0] is 2
+r2[1] is 3
+-------------------------------------------------------------------------------------------------------------
+
+#Python operator overloading
+---------------------------------------------------------------------------------------------------------------
+# Python operator overloading
+
+class opoverload:
+    def __init__(self,a):
+        self.a = a
+    def __add__(self,obj2):
+        return self.a+obj2.a
+print(opoverload(5) + opoverload(6))
+print(opoverload(5).__add__(opoverload(6)))
+
+11
+11
+-----------------------------------------------------------------------------------------------------------------

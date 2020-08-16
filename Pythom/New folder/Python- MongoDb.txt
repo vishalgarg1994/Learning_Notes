@@ -1,0 +1,217 @@
+MongoDB - Python
+===================
+1. install pymongo
+
+2.1 Creating Database
+import pymongo
+myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+mydb = myclient["mydatabase"] # For creating DB use # Use connection object to create DB
+
+In mongo
+========
+collection --> table
+Document ---> Record
+
+DB and collection is createdonly 
+
+2.2 Check if DB exists
+
+dblist = myclient.list_database_names()  # use connection object
+if "mydatabase" in dblist:
+  print("The database exists.")
+
+
+3.1 Creating collection
+
+mycol = mydb["customers"] # Use DB object name
+print(mydb.list_collection_names())
+
+4.1 Insert into collection
+
+mydict = { "name": "John", "address": "Highway 37" }
+x = mycol.insert_one(mydict)  #use the collection object
+print(x.inserted_id)  #id of the inserted document
+
+
+If you do not specify an _id field, then MongoDB will add one for you and assign a unique id for each document.
+Every document has a unique ID
+
+
+
+4.2
+Insert multiple records
+====================
+mylist = [
+  { "name": "Amy", "address": "Apple st 652"},
+  { "name": "Hannah", "address": "Mountain 21"},
+  { "name": "Michael", "address": "Valley 345"},
+  { "name": "Sandy", "address": "Ocean blvd 2"},
+  { "name": "Betty", "address": "Green Grass 1"},
+  { "name": "Richard", "address": "Sky st 331"},
+  { "name": "Susan", "address": "One way 98"},
+  { "name": "Vicky", "address": "Yellow Garden 2"},
+  { "name": "Ben", "address": "Park Lane 38"},
+  { "name": "William", "address": "Central st 954"},
+  { "name": "Chuck", "address": "Main Road 989"},
+  { "name": "Viola", "address": "Sideway 1633"}
+]
+x = mycol.insert_many(mylist)
+print(x.inserted_ids)
+
+4.3
+==============
+Insert Multiple docs with specific id's
+=============================================
+mylist = [
+  { "_id": 1, "name": "John", "address": "Highway 37"},
+  { "_id": 2, "name": "Peter", "address": "Lowstreet 27"},
+  { "_id": 3, "name": "Amy", "address": "Apple st 652"},
+  { "_id": 4, "name": "Hannah", "address": "Mountain 21"},
+  { "_id": 5, "name": "Michael", "address": "Valley 345"},
+  { "_id": 6, "name": "Sandy", "address": "Ocean blvd 2"},
+  { "_id": 7, "name": "Betty", "address": "Green Grass 1"},
+  { "_id": 8, "name": "Richard", "address": "Sky st 331"},
+  { "_id": 9, "name": "Susan", "address": "One way 98"},
+  { "_id": 10, "name": "Vicky", "address": "Yellow Garden 2"},
+  { "_id": 11, "name": "Ben", "address": "Park Lane 38"},
+  { "_id": 12, "name": "William", "address": "Central st 954"},
+  { "_id": 13, "name": "Chuck", "address": "Main Road 989"},
+  { "_id": 14, "name": "Viola", "address": "Sideway 1633"}
+]
+
+x = mycol.insert_many(mylist)
+
+#print list of the _id values of the inserted documents:
+print(x.inserted_ids)
+
+5.1
+Selecting Data ---> find_one,
+=====================
+
+First Document 
+
+x = mycol.find_one()
+print(x)
+
+5.2
+For all docs 
+
+mycol = mydb["customers"]
+for x in mycol.find():
+  print(x)
+
+
+5.3
+============
+Only few cols
+
+for x in mycol.find({},{ "_id": 0, "name": 1, "address": 1 }): #0 ---> exclude, 1 Include First brace is query object
+  print(x)
+
+# either you can use 0 only or 1 only...only if you are using _id...then only you can exclude id and include others
+
+5.4
+Exclude address
+
+for x in mycol.find({},{ "address": 0 }):
+  print(x)
+
+5.5
+Error as include and exclude together
+for x in mycol.find({},{ "name": 1, "address": 0 }):
+  print(x)
+
+5.6
+print 5 records
+
+myresult = mycol.find().limit(5)
+#print the result:
+for x in myresult:
+  print(x)
+
+6.1  where clause
+-======
+Find document(s) with the address "Park Lane 38"
+
+myquery = { "address": "Park Lane 38" }
+mydoc = mycol.find(myquery)
+for x in mydoc:
+  print(x)
+
+6.2
+Find documents where the address starts with the letter "S" or higher:
+myquery = { "address": { "$gt": "S" } }
+mydoc = mycol.find(myquery)
+for x in mydoc:
+  print(x)
+
+6.3
+=============
+Find documents where the address starts with the letter "S":
+
+myquery = { "address": { "$regex": "^S" } }
+mydoc = mycol.find(myquery)
+for x in mydoc:
+  print(x)
+
+7.1
+sort by name
+
+mydoc = mycol.find().sort("name")
+for x in mydoc:
+  print(x)
+
+7.2
+========
+sort by name desc
+
+mydoc = mycol.find().sort("name", -1)
+for x in mydoc:
+  print(x)
+
+8.1
+=============
+Delete the document with the address "Mountain 21":
+
+myquery = { "address": "Mountain 21" }
+mycol.delete_one(myquery)
+
+8.2
+==========================
+Delete all documents were the address starts with the letter S:
+
+myquery = { "address": {"$regex": "^S"} }
+x = mycol.delete_many(myquery)
+print(x.deleted_count, " documents deleted.")
+
+8.3
+========================
+delete all
+
+x = mycol.delete_many({})
+print(x.deleted_count, " documents deleted.")
+
+9.1
+===========
+drop collection
+
+
+mycol.drop()
+
+10.1
+----------------------------
+update collection
+
+Change the address from "Valley 345" to "Canyon 123":
+
+myquery = { "address": "Valley 345" }
+newvalues = { "$set": { "address": "Canyon 123" } }
+mycol.update_one(myquery, newvalues)
+
+
+10.2
+update all documents where the address starts with the letter "S":
+
+myquery = { "address": { "$regex": "^S" } }
+newvalues = { "$set": { "name": "Minnie" } }
+x = mycol.update_many(myquery, newvalues)

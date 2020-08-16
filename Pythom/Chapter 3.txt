@@ -1,0 +1,139 @@
+x# Python inbuilt Functions  - 1
+-------------------------------------------------------------------------------------------------------------
+radius = input("Enter radius: ") # takes user input as string
+radius = eval(radius) # Convert string into integer
+num = input("Enter a number: ") # takes user input as string
+num = int(num) # convert number string to number
+print("radius is :",radius,  end = ' ') # By default the end char in print is \n, if you want to change you can change like this
+print("number is :",num)
+
+Enter radius: 10                                                                                                                      
+Enter a number: 5                                                                                                                     
+radius is : 10 number is : 5
+-------------------------------------------------------------------------------------------------------------
+
+# Python inbuilt Functions  - 2
+-------------------------------------------------------------------------------------------------------------
+import math
+
+print("1 ",abs(-2))     # Absolute
+print("2 ", max(1,3,2))  # Max 
+print("3 ",min(1,3,2))  # Min
+print("4 ",pow(2,3))    # Power
+print("5 ",round(3.6))  # round
+print("6 ",round(3.64556,3))  # rounded to n digits
+print("7 ",math.pi)      # PI in Math library
+print("8 ",math.e)       
+print("9 ",math.fabs(-2))  # Absolute value as float
+print("10 ",math.ceil(2.6)) # up to nearest inters
+print("11 ",math.floor(2.6)) # Down to nearest integer
+print("12 ",math.exp(1))  # return exponential function of x like e raise to power 1 
+print("13 ",math.log(2.7))  # Logarithmic
+print("14 ",math.log(100,10))  # Log with specific base
+print("15 ",math.sqrt(4))  # Square root
+print("16 ",math.sin(1))  #   value in radians
+print("17 ",math.asin(1))  #  value in degrees (a prefixed)
+print("18 ",math.cos(1))  #
+print("19 ",math.acos(1))  #
+print("20 ",math.tan(1))  #    
+print("21 ",math.degrees(1))  #  radians to degrees
+print("22 ",math.radians(1))  # degrees to radians
+print("23 ",ord('a')) # Encoding scheme of this character
+print("24 ",chr(97)) # Character at this value
+
+1  2                                                                                                                                    
+2  3                                                                                                                                    
+3  1                                                                                                                                    
+4  8                                                                                                                                    
+5  4                                                                                                                                    
+6  3.646                                                                                                                                
+7  3.141592653589793                                                                                                                    
+8  2.718281828459045                                                                                                                    
+9  2.0                                                                                                                                  
+10  3                                                                                                                                   
+11  2                                                                                                                                   
+12  2.718281828459045                                                                                                                   
+13  0.9932517730102834                                                                                                                  
+14  2.0                                                                                                                                 
+15  2.0                                                                                                                                 
+16  0.8414709848078965                                                                                                                  
+17  1.5707963267948966                                                                                                                  
+18  0.5403023058681398                                                                                                                  
+19  0.0                                                                                                                                 
+20  1.5574077246549023                                                                                                                  
+21  57.29577951308232                                                                                                                   
+22  0.017453292519943295 
+23 97                                                                                                                                      
+24 a
+-------------------------------------------------------------------------------------------------------------
+
+# Python escape chars
+-------------------------------------------------------------------------------------------------------------
+print("1. \'") # Sibngle quote
+print("2. \"") # Double quote
+print("3. \n") #Newline
+print("4. \t") # tab
+print("5. abc\bd") # Backspace
+print("6. abc\\d") # Backslash
+print("7. abc\rd") # character is used to move the cursor to the first position on the same line
+print("8. abc\fd") # character forces the printer to print from the next page
+
+1. '                                                                                                                                    
+2. "                                                                                                                                    
+3.                                                                                                                                      
+                                                                                                                                        
+4.                                                                                                                                      
+5. abd                                                                                                                                  
+6. abc\d                                                                                                                                
+d. abc                                                                                                                                  
+8. abc                                                                                                                                  
+      d      
+-------------------------------------------------------------------------------------------------------------
+
+# Python inbuilt Functions  - 3
+-------------------------------------------------------------------------------------------------------------
+print("1. ",str(3.4)) # number to string 
+number = 3
+constr = "Chapter " + str(number) # '+' is a concatenation operator 
+print("2.",constr)
+constr += " abc"
+print("3.",constr)
+# a number is an object, a string is an object, and every datum is an object. Objects
+# of the same kind have the same type.
+print(id(number))    # Object Id Info
+print(type(number))  # Type of object
+string = "abc"
+print(id(string))    # Object Id Info
+print(type(string))  # Type of object
+flt = 2.4
+print(id(flt))    # Object Id Info
+print(type(flt))  # Type of object
+char = 'a'
+print(id(char))    # Object Id Info
+print(type(char))  # Type of object
+
+1.  3.4                                                                                                                               
+2. Chapter 3                                                                                                                          
+3. Chapter 3 abc                                                                                                                      
+10455104                                                                                                                              
+<class 'int'>                                                                                                                         
+139923685572368                                                                                                                       
+<class 'str'>                                                                                                                         
+139923686076728                                                                                                                       
+<class 'float'>                                                                                                                       
+139923685746032                                                                                                                       
+<class 'str'>   
+-------------------------------------------------------------------------------------------------------------
+
+# Python object's methods
+-------------------------------------------------------------------------------------------------------------
+s  = "Welcome"
+print("1. ",s.lower())  # Lowercase is a method invoked on object 's' (Since s is a 'str' object) this
+                  # method returns a lowercase string
+print("2. ",s.upper())  # Uppercase 
+print("3. ",s)          # Original basestring
+s = "\t Welcome \n"
+print("4. ",s)
+print("5. ",s.strip()) # remove whitespace chars like \t \r ' ' \f \next
+-------------------------------------------------------------------------------------------------------------
+

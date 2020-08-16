@@ -1,0 +1,112 @@
+1. Installing the connector (mysql-connector)
+
+How stuff works
+=====================
+1. connect to a DB
+2. Make a cursor
+3. execute your query in a cursor
+
+
+2. Connect to DB
+
+import mysql.connector
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="yourusername",
+  password="yourpassword"
+)
+
+print(mydb)  #<mysql.connector.connection.MySQLConnection object ar 0x016645F0>
+
+3.1 Create a Database
+    
+mycursor = mydb.cursor()
+mycursor.execute("CREATE DATABASE mydatabase")
+
+3.2 Check if the DB exists
+
+mycursor = mydb.cursor()
+mycursor.execute("SHOW DATABASES")
+for x in mycursor:
+  print(x)
+
+3.3 Connecting to a database
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="yourusername",
+  password="yourpassword",
+  database="mydatabase"
+)
+
+4.1 Creation of a table
+
+mycursor = mydb.cursor()
+mycursor.execute("CREATE TABLE customers (name VARCHAR(255), address VARCHAR(255))")
+
+4.2 Check if table exists
+
+mycursor = mydb.cursor()
+mycursor.execute("SHOW TABLES")
+for x in mycursor:
+  print(x)
+
+
+5.1 Insert into a table
+
+mycursor = mydb.cursor()
+
+sql = "INSERT INTO customers (name, address) VALUES (%s, %s)" #%s can be used to prevent SQL injection
+val = ("John", "Highway 21")
+mycursor.execute(sql, val) # you can use %s and then can be replaced with args you give.like val this can be used in any query
+mydb.commit()
+print(mycursor.rowcount, "record inserted.")
+print("1 record inserted, ID:", mycursor.lastrowid)
+
+5.2 Insert many records
+
+mycursor = mydb.cursor()
+sql = "INSERT INTO customers (name, address) VALUES (%s, %s)"
+val = [
+  ('Peter', 'Lowstreet 4'),
+  ('Amy', 'Apple st 652'),
+  ('Hannah', 'Mountain 21'),
+  ('Michael', 'Valley 345'),
+  ('Sandy', 'Ocean blvd 2'),
+  ('Betty', 'Green Grass 1'),
+  ('Richard', 'Sky st 331'),
+  ('Susan', 'One way 98'),
+  ('Vicky', 'Yellow Garden 2'),
+  ('Ben', 'Park Lane 38'),
+  ('William', 'Central st 954'),
+  ('Chuck', 'Main Road 989'),
+  ('Viola', 'Sideway 1633')
+]
+mycursor.executemany(sql, val)
+mydb.commit()
+print(mycursor.rowcount, "was inserted.")
+
+
+6.1 Select rows from the table
+
+mycursor = mydb.cursor()
+mycursor.execute("SELECT * FROM customers")
+myresult = mycursor.fetchall()  # you can use the fetchone method to fetch only a single row
+for x in myresult:
+  print(x)
+
+
+7.1 Write SQL in multiple lines
+sql = "SELECT \
+  users.name AS user, \
+  products.name AS favorite \
+  FROM users \
+  LEFT JOIN products ON users.fav = products.id"
+
+
+
+
+
+
+
+

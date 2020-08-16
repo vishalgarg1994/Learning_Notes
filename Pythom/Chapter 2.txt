@@ -1,0 +1,82 @@
+# Hello World program in Python
+-------------------------------------------------------------------------------------------------------------------------------    
+print "Hello World!\n"
+print "Python is fun"
+# this is a single line comment
+''' this is a 
+     multiline comment 
+'''
+print "abc" 
+---------------------------------------------------------------------------------------------------------------------------
+
+# Mathematical Operations
+-------------------------------------------------------------------------------------------------------------------------------
+print(10+5)
+print(10-5)
+print(10*5)
+print(10/5)
+print((10.5+2*3)/(45-3.5))
+----------------------------------------------------------------------------------------------------------------------------
+
+# Compute area of a circle using fixed radius value
+-------------------------------------------------------------------------------------------------------------------------------
+radius = 20
+area = radius * radius * 3.14
+print("The area for circle of radius ", radius , " is ", area)
+-----------------------------------------------------------------------------------------------------------------------------
+
+# Compute area of a circle using user input radius
+-----------------------------------------------------------------------------------------------------------------------------
+print "Hello World!\n"
+radius = input("Enter the radius: ")
+#radius = eval(radius)
+# Input function will take user input from console in string format
+# eval will convert string to number
+area = radius * radius * 3.14
+print("Area for circle of radius ", radius, "is ",area)
+-------------------------------------------------------------------------------------------------------------------------------
+
+# Converts seconds to minutes and seconds
+-------------------------------------------------------------------------------------------------------------------------------
+seconds = 500
+mins = seconds // 60  # Integer division
+secs = seconds % 60   # remainder
+print("Conversion for minute-seconds for ",seconds," is ",mins,
+    " minutes ",secs," seconds ")
+# '/' is continuation operator
+-------------------------------------------------------------------------------------------------------------------------------
+
+# Operators
+-------------------------------------------------------------------------------------------------------------------------------
+print( 10 + 5) # Addition       
+print( 10 - 5) # Subtraction    
+print( 10 * 5) # Multiplication
+print( 10 / 3) # Division
+print( 2 ** 3) # Power
+print( 5 % 2)  # Modulo
+print( 5 // 2) # Integer Division
+
+a,b,c = 1,2,3 # Assignment
+print(a,b,c)
+a=b=c=1       # Assignment
+print(a,b,c)
+a = 1
+b = 2
+a,b=b,a  # Swap a and b values
+print(a,b)
+PI = 3.14 # Named Constant
+PI = 3.56 # Named Constant can be changed.. just naming convintions are in CAPS
+
+
+
+15
+5
+50
+3
+8
+1
+2
+(1, 2, 3)
+(1, 1, 1)
+(2, 1)
+-------------------------------------------------------------------------------------------------------------------------------

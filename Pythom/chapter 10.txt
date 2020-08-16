@@ -1,0 +1,164 @@
+# Python list
+----------------------------------------------------------------------------------------
+no_of_elements =  5
+number = [] # creating a list (name = array braces) It is same as number = list()
+for i in range(no_of_elements):
+    number.append(i)      # Python list size is flexible, can grow and shrink on demand
+for i in range(no_of_elements):
+    print(number[i])
+	
+0
+1
+2
+3
+4
+----------------------------------------------------------------------------------------
+
+# Python creating lists
+----------------------------------------------------------------------------------------
+l1 = list()                    # Empty
+l2 = list([1,2,3])             # Numeric
+l3 = list(range(3,6))          # range numeric
+l4 = list(["A","B","C"])        # string
+l5 = list(["A",2,range(3,6)])   # Mixed
+l6 = list("abcd")               # Chars
+print("l1\t",l1)
+print("l2\t",l2)
+print("l3\t",l3)
+print("l4\t",l4)
+print("l5\t",l5)
+print("l6\t",l6)
+
+l1       []                                                                                                                    
+l2       [1, 2, 3]                                                                                                             
+l3       [3, 4, 5]                                                                                                             
+l4       ['A', 'B', 'C']                                                                                                       
+l5       ['A', 2, range(3, 6)]                                                                                                 
+l6       ['a', 'b', 'c', 'd'] 
+----------------------------------------------------------------------------------------
+
+# Python list common operations
+----------------------------------------------------------------------------------------
+# Python list
+l1 = list([6])
+l2 = list([1,2,3,4,5])
+print(1 in l2)      # true
+print(5 not in l2)  #False
+print(l1 + l2)      # concatenate
+print(l1 * 5)       # repetition
+print(l2[0])        # index
+print(l2[1:3])      # slice as same as string (i to j-1)
+print(len(l2))   
+print(max(l2))
+print(min(l2))
+print(sum(l2))      # Works only on numeric values     
+print(l1 > l2)      # element by element comparision .. all relational operators could be used
+random.shuffle(l2)  # shuffling a list
+print(l2)
+print(l2[-1])      # negative index + length so l2[-1 + 4]
+
+True                                                                                                                           
+False                                                                                                                          
+[6, 1, 2, 3, 4, 5]                                                                                                             
+[6, 6, 6, 6, 6]                                                                                                                
+1                                                                                                                              
+[2, 3]                                                                                                                         
+5                                                                                                                              
+5                                                                                                                              
+1                                                                                                                              
+15                                                                                                                             
+True 
+[3, 4, 1, 2, 5]
+4
+----------------------------------------------------------------------------------------
+
+# Python list traversal
+----------------------------------------------------------------------------------------
+l2 = list([1,2,3,4])
+for i in l2:
+    print(i,end = " ")
+print()
+for i in range(0,len(l2)):
+    print(l2[i],end = " ")
+	
+1 2 3 4
+1 2 3 4
+----------------------------------------------------------------------------------------
+
+# Python Creating a list from another
+----------------------------------------------------------------------------------------
+l1 = [x for x in range(5)]
+print(l1)
+l2 = [x*0.5 for x in range(5)]
+print(l2)
+l3 = [x for x in l2 if x > 1.5]
+print(l3)
+
+[0, 1, 2, 3, 4]                                                                                                                
+[0.0, 0.5, 1.0, 1.5, 2.0]                                                                                                      
+[2.0] 
+----------------------------------------------------------------------------------------
+
+# Python list common methods
+-------------------------------------------------------------------------------------------
+import random
+l1 = list([1,2,2,4,5])
+print(l1)
+l1.append(6)    # append at last
+print(l1)
+l1.insert(2,7)  # insert 7 at index 2
+print(l1)
+print(l1.count(2))  # number of occurence of 2
+print(l1.index(2))  # First index occurence of 2
+print(l1.pop())     # pop last item in list and return
+print(l1.pop(0))    # pop item at specified index
+l1.remove(2) # remove first occurence of 2
+print(l1)
+l1.reverse()
+print(l1)
+random.shuffle(l1)
+print(l1)
+l1.sort()
+print(l1)
+l2 = ([3,4,5])
+l1.extend(l2)   # appending a list
+print(l1)
+
+[1, 2, 2, 4, 5]                                                                                                                  
+[1, 2, 2, 4, 5, 6]                                                                                                               
+[1, 2, 7, 2, 4, 5, 6]                                                                                                            
+2                                                                                                                                
+1                                                                                                                                
+6                                                                                                                                
+1                                                                                                                                
+[7, 2, 4, 5]                                                                                                                     
+[5, 4, 2, 7]                                                                                                                     
+[7, 4, 5, 2]                                                                                                                     
+[2, 4, 5, 7]                                                                                                                     
+[2, 4, 5, 7, 3, 4, 5]  
+-------------------------------------------------------------------------------------------------
+
+# Python string split into a list
+-------------------------------------------------------------------------------------------------
+items = "09/20/2012".split("/")   # Python support regular expression as well in split
+print(items)
+
+['09', '20', '2012']
+-------------------------------------------------------------------------------------------------
+
+# Python list with functions
+-------------------------------------------------------------------------------------------------
+def a(lst):
+    print(lst)
+def add(item,lst = []):       # default value for a list
+    lst.append(item)
+    return lst                # returning a list
+def main():
+    l = list([1,2,3,4])
+    a(l)
+    print(add(5,l))
+main()
+
+[1, 2, 3, 4]                                                                                                                   
+[1, 2, 3, 4, 5]
+-------------------------------------------------------------------------------------------------

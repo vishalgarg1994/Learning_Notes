@@ -1,0 +1,88 @@
+# Python functions
+-------------------------------------------------------------------------------------------------------------
+def sum(number1,number2):  # number1 and number2 are formal parameters here and this line is function header
+    return number1 + number2   # this is value returning function
+def main():
+    print(sum(1,2))  # 1 & 2 are actual parameters here
+    print(sum(2,3))
+    print(sum(3,4))    #This is non value returning function
+
+main()
+
+3
+5
+7
+-------------------------------------------------------------------------------------------------------------
+
+# Python -- Positional & keyword arguments
+-------------------------------------------------------------------------------------------------------------
+def sum(number1,number2,number3):
+    return number1 / number2 + number3
+def main():
+    print(sum(4,2,3))  # -- Positional parameters
+    print(sum(number2 = 2, number3 = 3, number1 = 4)) # -- Keyword parameters
+    print(sum(4,number3 = 3, number2 = 2)) # -- mixing of both (Positional should be before keyword one's)
+    #print(sum(4,number2 = 2, 3)) wrong as '3', which is positional, is after keyword one
+main()
+
+5.0
+5.0
+5.0
+-------------------------------------------------------------------------------------------------------------
+
+# Python -- Call by reference (Strings and numbers are immutable objects.. so any value change will be a new ID.. and same value will be just a reference
+-------------------------------------------------------------------------------------------------------------
+x = 4
+y = x
+print(id(x))
+print(id(y))
+y += 1 
+print(id(y))
+
+10455136                                                                                                                              
+10455136                                                                                                                              
+10455168
+-------------------------------------------------------------------------------------------------------------
+
+# Python default argument function
+-------------------------------------------------------------------------------------------------------------
+def sum(number1 = 4,number2 = 2 ,number3 = 3):  # default argument function
+    return number1 / number2 + number3
+def main():
+    print(sum())  # -- using default arguments
+    print(sum(number2 = 2)) # -- Keyword parameters + default
+    print(sum(4,number3 = 3, number2 = 2)) # -- mixing of both (Positional should be before keyword one's)
+    #print(sum(4,number2 = 2, 3)) wrong as '3', which is positional, is after keyword one
+main()
+
+5.0
+5.0
+5.0
+-------------------------------------------------------------------------------------------------------------
+
+# Python return multiple values
+-------------------------------------------------------------------------------------------------------------
+
+def sum(number1 = 4,number2 = 2 ,number3 = 3):  # default argument function
+    return number1, number2, number3
+def main():
+    print(sum())  # -- using default arguments
+main()
+
+(4, 2, 3)
+-------------------------------------------------------------------------------------------------------------
+
+# Python multiple function same name
+-------------------------------------------------------------------------------------------------------------
+def sum(number1 = 4,number2 = 2 ,number3 = 3):  # default argument function
+    return number1, number2, number3
+def sum(number1 = 4,number2 = 2):  # default argument function
+    return number1, number2
+def main():
+    print(sum())  # -- call second one as second one replaces first one
+    # print(sum(1,2,3)) will be error because now there is no function having 3 arguments as sum is now in memory
+    # with 2 arguments
+main()
+
+(4, 2)
+-------------------------------------------------------------------------------------------------------------

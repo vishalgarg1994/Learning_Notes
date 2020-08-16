@@ -1,0 +1,143 @@
+thisdict =	{            # Curly braces with a key and a value
+
+  "brand": "Ford",
+
+  "model": "Mustang",
+
+  "year": 1964
+}
+
+print(thisdict)
+
+print(thisdict["model"])     # provide the key
+
+print(thisdict.get("model")) # get method is also there
+
+thisdict["year"] = 2018      # Change values using keys
+
+print(thisdict)
+
+for x in thisdict:
+
+  print(x)                   # Will print keys
+
+for x in thisdict:
+
+  print(thisdict[x])         # Will print values
+
+for x in thisdict.values():  # Values could be printed like this as well
+
+  print(x)
+
+for x, y in thisdict.items(): # Keys and values together
+
+  print(x, y)
+
+print("model" in thisdict)    # Check for keys only
+
+print(len(thisdict))
+
+thisdict["color"] = "red"     # Add item (adding at first)
+
+print(thisdict)
+
+thisdict.pop("model")         # Removing an item at last
+
+print(thisdict)
+
+thisdict.popitem()            # Removing last inserted item
+
+print(thisdict)
+
+del thisdict["brand"]         # deleting the item
+
+print(thisdict)
+
+del thisdict                  # delete full dictionary
+
+thisdict =	{
+
+  "brand": "Ford",
+
+  "model": "Mustang",
+
+  "year": 1964
+}
+
+thisdict.clear()
+
+print(thisdict)
+
+thisdict =	dict(brand="Ford", model="Mustang", year=1964) # constructor
+
+print(thisdict)
+
+x = thisdict.copy()
+
+print(x)
+
+x = ('key1', 'key2', 'key3')
+
+y = 0
+
+thisdict = dict.fromkeys(x, y)  # dict.fromkeys(keys, value) ( value is optional )
+
+print(thisdict)
+
+print(thisdict.keys())
+
+car = {
+
+  "brand": "Ford",
+
+  "model": "Mustang",
+
+  "year": 1964
+}
+
+x = car.setdefault("color", "white") # if key exist then update else create a new one
+
+print(x)                             # value is an optional field (default valu is none)
+
+print(car)
+
+car.update({"color": "red"}) # if key exist then update else create a new one
+print(car)
+
+
+
+
+
+
+
+
+{'brand': 'Ford', 'model': 'Mustang', 'year': 1964}
+Mustang
+Mustang
+{'brand': 'Ford', 'model': 'Mustang', 'year': 2018}
+brand
+model
+year
+Ford
+Mustang
+2018
+Ford
+Mustang
+2018
+('brand', 'Ford')
+('model', 'Mustang')
+('year', 2018)
+True
+3
+{'color': 'red', 'brand': 'Ford', 'model': 'Mustang', 'year': 2018}
+{'color': 'red', 'brand': 'Ford', 'year': 2018}
+{'brand': 'Ford', 'year': 2018}
+{'year': 2018}
+{}
+{'model': 'Mustang', 'brand': 'Ford', 'year': 1964}
+{'model': 'Mustang', 'brand': 'Ford', 'year': 1964}
+{'key3': 0, 'key2': 0, 'key1': 0}
+['key3', 'key2', 'key1']
+white
+{'color': 'white', 'brand': 'Ford', 'model': 'Mustang', 'year': 1964}
+{'color': 'red', 'brand': 'Ford', 'model': 'Mustang', 'year': 1964}

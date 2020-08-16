@@ -1,0 +1,105 @@
+# Python Inheritence
+-------------------------------------------------------------------------------------------------
+class shape:                  # same as shape(object) as object is a by default inherited class for every class
+    def __init__(self,color = "green", filled = True ):
+        self.__color = color
+        self.__filled = filled
+    def getColor(self):
+        return self.__color 
+    def setColor(self,color):
+        self.__color = color 
+    def isFilled(self):
+        return self.__filled
+    def setFilled(self,filled):
+        self.__filled = filled
+    def __str__(self):
+        return "color " + self.__color + " and filled " + str(self.__filled)
+class circle(shape):
+    def __init__(self,r):
+        super().__init__()
+        self.__r = r
+    def getArea(self):
+        return 3.14 * self.__r * self.__r
+    def printcircle(self):
+        print(self.__str__())
+def main():
+   c1 = circle(10)   # caling both constructor super and sub
+   print(c1)     # same as c1.__str__()... calling super class function
+main()
+
+color green and filled True 
+-------------------------------------------------------------------------------------------------
+
+
+# Python Inheritence Method Override ( you can't override a private method
+-------------------------------------------------------------------------------------------------
+class shape:
+    def __init__(self,color = "green", filled = True ):
+        self.__color = color
+        self.__filled = filled
+    def getColor(self):
+        return self.__color 
+    def setColor(self,color):
+        self.__color = color 
+    def isFilled(self):
+        return self.__filled
+    def setFilled(self,filled):
+        self.__filled = filled
+    def __str__(self):
+        return "color " + self.__color + " and filled " + str(self.__filled)
+class circle(shape):
+    def __init__(self,r):
+        super().__init__()
+        self.__r = r
+    def getArea(self):
+        return 3.14 * self.__r * self.__r
+    def printcircle(self):
+        print(self.__str__())
+    def __str__(self):
+        return "overridden method in sub class"
+def main():
+   c1 = circle(10)   # caling both constructor super and sub
+   print(c1)     # same as c1.__str__()... calling super class function
+main()
+    
+overridden method in sub class
+-------------------------------------------------------------------------------------------------
+
+# Python dynamic binding
+-------------------------------------------------------------------------------------------------
+class student:
+    def __str__(self):
+        print("student")
+    def printstudent(self):
+        self.__str__()
+class gradutestudent(student):
+    def __str__(self):
+        print("graduate student")
+def main():
+    s = student()
+    g = gradutestudent()
+    s.printstudent()
+    g.printstudent() 
+	print(isinstance(s,student))
+    print(isinstance(s,gradutestudent))
+    print(isinstance(g,student))
+    print(isinstance(g,gradutestudent))	
+main()
+
+student                                                                                                                        
+graduate student  
+True                                                                                                                           
+False                                                                                                                          
+True                                                                                                                           
+True 
+-------------------------------------------------------------------------------------------------
+
+# python datetime class
+-------------------------------------------------------------------------------------------------
+import datetime
+
+d = datetime.datetime.now()
+print(d.year,d.month,d.day,d.hour,d.minute,d.second)
+
+2019 1 18 17 38 9
+-------------------------------------------------------------------------------------------------

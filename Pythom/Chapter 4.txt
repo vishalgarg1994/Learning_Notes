@@ -1,0 +1,83 @@
+# Python Boolean
+-----------------------------------------------------------------------------------------------------
+import random
+radius = 5
+print(radius >= 5)      # Boolean value as output (True or False)
+print(int(radius >= 5)) # True "Non zero value"  False -- 0 (Int can conver boolean to Int)
+print(bool(0))    # int to boolean (0 False)
+print(bool(3))    # Non Zero - True
+# Assignment operators --> >,>=,<,<=,==,!=
+print(random.random()) # Random float b/w 0.0 to 1.0 [0.0,1.0)
+num1 = random.randint(0,9) # genrates a random integer b/w 0 to 9 inclusive
+num2 = random.randint(0,9)
+number = eval(input("What is " + str(num1) + " + " + str(num2) + " : "))
+print(number == num1 + num2)
+
+True                                                                                                                                  
+1                                                                                                                                     
+False                                                                                                                                 
+True                                                                                                                                  
+0.651489247470678                                                                                                                     
+What is 4 + 8 : 12                                                                                                                    
+True
+-----------------------------------------------------------------------------------------------------
+
+# Python if 
+-----------------------------------------------------------------------------------------------------
+import sys
+number = 5
+
+if number == 2:           # The statement(s) must be indented at least one space to the right of the if keyword 
+                          # and each statement must be indented using the same number of spaces.
+    print("2")
+elif number == 3:
+    print("3")
+    print("Hurrah")
+    sys.exit()
+else: 
+    print("5")
+    
+print("Hello")
+
+3                                                                                                                                     
+Hurrah
+-----------------------------------------------------------------------------------------------------
+
+# Python Logical operator
+-----------------------------------------------------------------------------------------------------
+print(not(0))
+print(1 and 0)
+print(1 and -1)
+print(1 or 0)
+
+True                                                                                                                                  
+0                                                                                                                                     
+-1                                                                                                                                    
+1
+-----------------------------------------------------------------------------------------------------
+
+# Python conditional expression
+-----------------------------------------------------------------------------------------------------
+# statement if_statement else_statement statement 
+x = 2
+print("hello" if x > 2 else "bye")
+x = 3
+print("hello" if x > 2 else "bye")
+
+bye
+hello
+-----------------------------------------------------------------------------------------------------
+
+# Python associativity and precedence
+-----------------------------------------------------------------------------------------------------
++, -                                   (Unary plus and minus)
+**                                     (Exponentiation)
+not
+*, /, //, %                            (Multiplication, division, integer division, and remainder)
++, -                                   (Binary addition and subtraction)
+<, <=, >, >=                           (Comparison)
+==, !=                                 (Equality)
+and
+or
+=, +=, -=, *=, /=, //=, %=             (Assignment operators)
+-----------------------------------------------------------------------------------------------------

@@ -1,0 +1,59 @@
+# Python sample class
+---------------------------------------------------------------------------------------------
+import math
+
+class Circle:
+    def __init__(self,radius = 1):
+        self.radius =  radius                        # radius is instance variable
+    def getArea(self):                               # instance method
+        return math.pi * self.radius * self.radius
+    def getParameter(self):                          
+        return 2 * math.pi * self.radius
+    def setRadius(self,radius):
+        self.radius = radius
+
+def main():
+    print(Circle(5).getArea())  # anonymous object
+    print(Circle().getArea())   # anonymous object
+    c1 = Circle(10)             # creating a object
+    print(c1.getArea())        
+    print(c1.getParameter())
+    c1.setRadius(20)
+    print(c1.getArea())
+    print(c1.getParameter())
+
+main()
+
+314.1592653589793                                                                                                                     
+62.83185307179586                                                                                                                     
+1256.6370614359173                                                                                                                    
+125.66370614359172
+---------------------------------------------------------------------------------------------
+
+# Python class with private instance variable 
+---------------------------------------------------------------------------------------------
+import math
+
+class Circle:
+    def __init__(self,radius = 1):
+        self.__radius =  radius
+    def getArea(self):
+        return math.pi * self.__radius * self.__radius
+    def getParameter(self):
+        return 2 * math.pi * self.__radius
+
+def main():
+    print(Circle(5).getArea())  # anonymous object
+    print(Circle().getArea())  # anonymous object
+    c1 = Circle(10)
+    print(c1.getArea())
+    print(c1.getParameter())
+    # print(c1.__radius) error.. no attributes __radius as __radius is private
+
+main()
+
+78.53981633974483                                                                                                                     
+3.141592653589793                                                                                                                     
+314.1592653589793                                                                                                                     
+62.83185307179586 
+---------------------------------------------------------------------------------------------

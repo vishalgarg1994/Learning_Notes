@@ -1,0 +1,197 @@
+# Python tuple creation
+----------------------------------------------------------------------
+t1 = ()
+t2 = tuple()
+t3 = tuple("abcd") # for chars
+print(t3)
+t4 = (1,2,3,4)
+print(t4)
+t5 = tuple([1,2,3,4])
+print(t5)
+t6 = ("a","b")
+print(t6)
+t7 = tuple(["a","c"])
+print(t7)
+
+('a', 'b', 'c', 'd')                                                                                                           
+(1, 2, 3, 4)                                                                                                                   
+(1, 2, 3, 4)                                                                                                                   
+('a', 'b')                                                                                                                     
+('a', 'c')
+---------------------------------------------------------------------------
+
+# Python tuple common operation
+---------------------------------------------------------------------------
+t5 = tuple([1,2,3,4])
+print(max(t5))  # 4
+print(min(t5))  # 1
+print(sum(t5))  # 10
+print(len(t5))  # 4
+print(t5[0])    # 1
+print(t5[-1])   # 4
+print(t5[:2])  # slicing  (1,2)
+print(t5 * 2)
+print(t5 + t5)
+print(2 in t5)   # true
+print(2 not in t5) # False 
+for i in t5:
+    print(i)
+for i in range(0,len(t5)):
+    print(t5[i])
+print(t5 == t5)  # All comparison operators can work
+4                                                                                                                                
+1                                                                                                                                
+10                                                                                                                               
+4                                                                                                                                
+1                                                                                                                                
+4                                                                                                                                
+(1, 2)                                                                                                                           
+(1, 2, 3, 4, 1, 2, 3, 4)                                                                                                         
+(1, 2, 3, 4, 1, 2, 3, 4)                                                                                                         
+True                                                                                                                             
+False                                                                                                                            
+1                                                                                                                                
+2                                                                                                                                
+3                                                                                                                                
+4                                                                                                                                
+1                                                                                                                                
+2                                                                                                                                
+3                                                                                                                                
+4 
+True
+-----------------------------------------------------------------------------------
+
+# python list from tuple
+-----------------------------------------------------------------------------------
+t5 = tuple([6,2,3,4])
+lst = list(t5)    # list from tuple
+print(lst)
+lst.sort()
+t4 = tuple(lst)  # tuple from list
+print(t4)
+
+[6, 2, 3, 4]                                                                                                                   
+(2, 3, 4, 6)
+-----------------------------------------------------------------------------------
+
+# Python Set
+-----------------------------------------------------------------------------------
+s1 = {}
+s2 = set({})
+s3 = {1,2,3,3}
+print(s3)
+s4 = set([1,2,3,3])
+print(s4)
+s4 = {"abcd","def"} # chars
+print(s4)
+s5 = {x*2 for x in range(3)}
+print(s5)
+s6 = set("abcd")
+print(s6)
+
+{1, 2, 3}                                                                                                                        
+{1, 2, 3}                                                                                                                        
+{'def', 'abcd'}                                                                                                                  
+{0, 2, 4}                                                                                                                        
+{'a', 'd', 'b', 'c'} 
+-----------------------------------------------------------------------------------
+
+# Python set operations
+-----------------------------------------------------------------------------------
+s1 = {1,2,3,4}
+print(s1) # 1 2 3 4
+s1.add(5)
+print(s1)  # 1 2 3 4 5
+s1.remove(3)
+print(s1)            # 1 2 4 5
+print(max(s1))   # 5
+print(min(s1))  # 1
+print(len(s1))  # 4
+print(sum(s1))  # 12
+print(2 in s1)   # True
+print(2 not in s1) # False
+s2 = {1,2}
+print(s2.issubset(s1))  # True
+print(s1.issuperset(s2))  # True
+print(s1 != s2)  # true. all relational operators could be used
+s2.add(6)
+s2.add(7)
+print(s1.union(s2))  #    same as s1 | s2    1 2 4 5 6 7
+print(s1.intersection(s2)) # same as s1 & s2  1 2
+print(s1.difference(s2)) # s1 - s2  4 5 
+print(s1.symmetric_difference(s2)) # same as s1 ^ s2 4 5 6 7
+
+
+{1, 2, 3, 4}                                                                                                                     
+{1, 2, 3, 4, 5}                                                                                                                  
+{1, 2, 4, 5}                                                                                                                     
+5                                                                                                                                
+1                                                                                                                                
+4                                                                                                                                
+12                                                                                                                               
+True                                                                                                                             
+False                                                                                                                            
+True                                                                                                                             
+True                                                                                                                             
+True                                                                                                                             
+{1, 2, 4, 5, 6, 7}                                                                                                               
+{1, 2}                                                                                                                           
+{4, 5}                                                                                                                           
+{4, 5, 6, 7}     
+-----------------------------------------------------------------------------------
+
+#Python dictionaries
+-----------------------------------------------------------------------------------
+students = {"111-34-3434":"John", "132-56-6290":"Peter"}
+students["234-56-9010"] = "Susan"   # add if key not present else update it
+print(students)
+print(students["234-56-9010"])  # if key not present then Keyerror exception
+del students["234-56-9010"]
+print(students)
+for key in students:
+    print(key," : ",students[key])
+print(len(students)) # 2
+print("111-34-3434" in students) # True
+print("111-34-3434" not in students) # False
+print(students == students) # can only use == & != others can't be used as items are not ordered
+
+{'111-34-3434': 'John', '234-56-9010': 'Susan', '132-56-6290': 'Peter'}                                                          
+Susan                                                                                                                            
+{'111-34-3434': 'John', '132-56-6290': 'Peter'}                                                                                  
+111-34-3434  :  John                                                                                                             
+132-56-6290  :  Peter                                                                                                            
+2                                                                                                                                
+True                                                                                                                             
+False                                                                                                                            
+True    
+-----------------------------------------------------------------------------------
+
+# Python dictionary operations
+-----------------------------------------------------------------------------------
+students = {"111-34-3434":"John", "132-56-6290":"Peter"}
+students["234-56-9010"] = "Susan"   # add if key not present else update it
+print(students.keys())
+print(students.values())  # 
+print(students.items())  # set of tuples and each tuple contain (key value) means 2D tuple
+print(students.get("234-56-9010")) # get value for key 
+print(students.pop("234-56-9010"))  # pop specified item
+print(students.popitem())  # pop random item
+students.clear() # delete all
+students = {"111-34-3434":"John", "132-56-6290":"Peter"}
+t1 = tuple(students.keys())
+t2 = tuple(students.values())
+t3 = tuple(students.items())
+print(t1)
+print(t2)
+print(t3)
+
+dict_keys(['111-34-3434', '132-56-6290', '234-56-9010'])                                                                       
+dict_values(['John', 'Peter', 'Susan'])                                                                                        
+dict_items([('111-34-3434', 'John'), ('132-56-6290', 'Peter'), ('234-56-9010', 'Susan')])                                      
+Susan                                                                                                                          
+Susan                                                                                                                          
+('111-34-3434', 'John')                                                                                                        
+('111-34-3434', '132-56-6290')                                                                                                 
+('John', 'Peter')                                                                                                              
+(('111-34-3434', 'John'), ('132-56-6290', 'Peter')) 
+-----------------------------------------------------------------------------------
